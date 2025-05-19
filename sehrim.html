@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Şehrim</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="Assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <nav class="navbar">
@@ -21,17 +25,190 @@
         </ul>
       </div>
     </nav>
-    <h1>Şehrim Bursa</h1>
-    <p>Şehrim Bursa hakkında genel bilgiler burada yer alacak.</p>
+
+    <header>
+      <h1>Bursa</h1>
+      <p class="subtitle">Yeşil Bursa</p>
+    </header>
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <a href="#suuctu">
+          <img
+            src="Assets/img/sehrim/slider/suuctu-selalesi.jpg"
+            alt="Görsel 1"
+          />
+          <div class="caption-overlay">Suuçtu Şelalesi</div>
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#ulucami">
+          <img
+            src="Assets/img/sehrim/slider/BursaUluCami.jpeg"
+            alt="Görsel 2"
+          />
+          <div class="caption-overlay">Bursa Ulu Cami</div>
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#cumalikizik">
+          <img src="Assets/img/sehrim/slider/cumalikizik.jpg" alt="Görsel 3" />
+          <div class="caption-overlay">Cumalıkızık Köyü</div>
+          </a>
+        </div>
+        <a href="#misikoyu">
+        <div class="swiper-slide">
+          <img src="Assets/img/sehrim/slider/misi_koyu.jpg" alt="Görsel 4" />
+          <div class="caption-overlay">Misi Köyü</div>
+        </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#tophane">
+          <img
+            src="Assets/img/sehrim/slider/TOPHANESAATKULESI.jpg"
+            alt="Görsel 3"/>
+            </a>
+          <div class="caption-overlay">Tophane Saat Kulesi</div>
+        </div>
+        <div class="swiper-slide">
+          <a href="#uludag">
+          <img src="Assets/img/sehrim/slider/Uludag.jpeg" alt="Görsel 5" />
+          <div class="caption-overlay">Uludağ</div>
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#yesilturbe">
+          <img src="Assets/img/sehrim/slider/yesilturbe.jpg" alt="Görsel 6" />
+          <div class="caption-overlay">Yeşil Türbe</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- Navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <section class="bursa-info">
+      <div class="info-container">
+        <div class="info-column">
+          <h2>Bursa'nın Tarihçesi</h2>
+          <p>
+            Bursa, Osmanlı İmparatorluğu'nun ilk başkentidir. M.Ö. 4. yüzyılda
+            Bitinya Krallığı döneminde kurulmuş ve tarih boyunca önemli bir
+            ticaret ve kültür merkezi olmuştur.
+          </p>
+        </div>
+        <div class="info-column">
+          <h2>Coğrafi Konumu</h2>
+          <p>
+            Marmara Bölgesi’nin güneyinde yer alan Bursa, hem sanayi hem de
+            doğal güzellikleriyle dikkat çeker. Uludağ, şehir için önemli bir
+            turistik merkezdir.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="place-details">
+  <div class="detail-container">
+    <div class="detail-block" id="suuctu">
+      <img src="Assets/img/sehrim/slider/suuctu-selalesi.jpg" alt="Suuçtu Şelalesi" />
+      <div class="detail-text">
+        <h3>Suuçtu Şelalesi</h3>
+        <p>Bursa’nın  Mustafakemalpaşa ilçesi sınırları içindedir ve ilçe merkezine 17 km uzaklıktadır. Bir fay hattının çökmesi sonucu oluşan Şelale, 38 metre yükseklikten dökülmektedir. Mesire ve piknik alanı da bulunan Suuçtu Şelalesi, etrafını saran Kayın ağaçları ve serin havası ile tam bir oksijen deposudur</p>
+      </div>
+    </div>
+
+    <div class="detail-block" id="ulucami">
+      <img src="Assets/img/sehrim/slider/BursaUluCami.jpeg" alt="Bursa Ulu Cami" />
+      <div class="detail-text">
+        <h3>Bursa Ulu Cami</h3>
+        <p>Bursa Ulu Cami, 1399 yılında Yıldırım Bayezid tarafından yaptırılmış ve Osmanlı erken dönem mimarisinin önemli örneklerinden biridir. 20 kubbesiyle dikkat çeken cami, hem ibadet hem de mimari açıdan büyük bir öneme sahiptir. İçindeki hat sanatı örnekleri ve şadırvanı ile ziyaretçileri etkiler.</p>
+      </div>
+    </div>
+
+    <div class="detail-block" id="cumalikizik">
+      <img src="Assets/img/sehrim/slider/cumalikizik.jpg" alt="Cumalıkızık" />
+      <div class="detail-text">
+        <h3>Cumalıkızık</h3>
+        <p>Cumalıkızık, Bursa’nın Yıldırım ilçesinde Uludağ’ın eteklerinde yer alan, Osmanlı döneminden günümüze kadar ulaşmış tarihi bir köydür. Arnavut kaldırımlı sokakları, cumbalı evleri ve otantik atmosferiyle dikkat çeker. 700 yıllık geçmişiyle yaşayan bir tarih olan köy, UNESCO Dünya Mirası Listesi'nde de yer almaktadır.
+</p>
+      </div>
+    </div>
+
+    <div class="detail-block" id="uludag">
+      <img src="Assets/img/sehrim/slider/Uludag.jpeg" alt="Uludağ" />
+      <div class="detail-text">
+        <h3>Uludağ</h3>
+        <p>Uludağ, Türkiye’nin en önemli kış turizmi merkezlerinden biridir. Kışın kayak ve snowboard, yazın ise kamp ve doğa yürüyüşleri için idealdir. Aynı zamanda bitki örtüsü açısından oldukça zengindir. Bursa manzarasını kuşbakışı izleyebileceğiniz eşsiz bir yerdir.</p>
+      </div>
+    </div>
+
+    <div class="detail-block" id="misikoyu">
+      <img src="Assets/img/sehrim/slider/misi_koyu.jpg" alt="Misi Köyü" />
+      <div class="detail-text">
+        <h3>Misi Köyü</h3>
+        <p>Misi Köyü, Bursa'nın Nilüfer ilçesinde, şehir merkezine oldukça yakın bir konumda bulunur. 2000 yıllık geçmişe sahip olan köy, doğal ve tarihi dokusunu korumayı başarmıştır. Restore edilen taş evleri, sanat atölyeleri ve kafe-restoranlarıyla kültürel bir cazibe merkezine dönüşmüştür. Nilüfer Çayı kıyısında yürüyüş yapma imkânı sunar.
+
+</p>
+      </div>
+    </div>
+
+    <div class="detail-block" id="tophane">
+      <img src="Assets/img/sehrim/slider/TOPHANESAATKULESI.jpg" alt="Tophane Saat Kulesi" />
+      <div class="detail-text">
+        <h3>Tophane Saat Kulesi</h3>
+        <p>Tophane, Bursa'nın en yüksek noktalarından biri olup şehri kuşbakışı izleyebileceğiniz tarihi bir bölgedir. Osman Gazi ve Orhan Gazi türbeleri burada yer alır. Aynı zamanda Tophane Saat Kulesi de bu alandadır. Ramazan ayında yapılan top atışlarıyla da bilinir.
+
+</p>
+      </div>
+    </div>
+
+    <div class="detail-block" id="yesilturbe">
+      <img src="Assets/img/sehrim/slider/yesilturbe.jpg" alt="Yeşil Türbe" />
+      <div class="detail-text">
+        <h3>Yeşil Türbe</h3>
+        <p>Yeşil Türbe, Osmanlı padişahı Çelebi Mehmet’in türbesidir ve Bursa’nın simgelerindendir. 1421 yılında inşa edilen yapı, adını dış cephesindeki yeşil çinilerden alır. Bursa’nın Yeşil semtinde yer alan türbe, Yeşil Camii ile birlikte tarihi bir külliye oluşturur. Mimari detayları ve süslemeleriyle dikkat çeker.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
     <footer>
       <div class="footer-container">
         <p>© 2025 Yunus Emre Kurnalı - Tüm hakları saklıdır.</p>
-        <span class="footer-divider"></span>
-        <a href="iletisim.html">İletişim</a>
-        <span class="footer-divider"></span>
-        <a href="login.html">Giriş Yap</a>
+        <div class="footer-links">
+          <span class="footer-divider"></span>
+          <a href="iletisim.html">İletişim</a>
+          <span class="footer-divider"></span>
+          <a href="login.html">Giriş Yap</a>
+          <span class="footer-divider"></span>
+        </div>
       </div>
     </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+      window.addEventListener("load", function () {
+        const swiper = new Swiper(".mySwiper", {
+          loop: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      });
+    </script>
   </body>
 </html>
