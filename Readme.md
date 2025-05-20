@@ -7,7 +7,7 @@ Bu proje, HTML, CSS, JavaScript, Bootstrap ve PHP kullanılarak geliştirilmiş 
 - **Hakkımda**: Kendimi tanıttığım giriş sayfası.
 - **CV**: Eğitim bilgilerimin yer aldığı sayfa.
 - **Şehrim**: Memleketim hakkında bilgi içeren sayfa ve resim slider’ı.
-- **Mirasımız**: Kültürel miras tanıtımı.
+- **Takımımız**: Memleketimin takımının tanıtımı.
 - **İlgi Alanlarım**: API ile veri gösterimi.
 - **İletişim**: Form elemanları ile mesaj gönderme.
 - **Giriş**: PHP ile kullanıcı girişi doğrulama.

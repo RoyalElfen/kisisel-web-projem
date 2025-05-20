@@ -549,13 +549,15 @@ article {
     gap: 0 !important; /* kutular arasında boşluk yok */
     margin: 0 auto;
   }
+  
 
   /* a1 ve a2 yan yana, 80x80 px */
   .a1,
   .a2 {
     flex: 0 0 160px !important;
     height: 160px !important;
-    margin: 0 !important;
+    box-sizing: border-box;
+    margin: 0px;
   }
 
   /* diğerleri alt alta, 160x160 px */
@@ -571,8 +573,8 @@ article {
 
 .swiper {
   width: 80vw;
-  max-width: 900px;
-  height: 400px; /* Slider yüksekliği */
+  max-width: 1000px;
+  height: 450px; /* Slider yüksekliği */
   margin: 0 auto;
   border-radius: 12px;
   overflow: hidden;
@@ -580,11 +582,11 @@ article {
   background: #fff;
 }
 .swiper-wrapper {
-  height: 400px !important;
+  height: 450px !important;
 }
 
 .swiper-slide {
-  height: 400px !important;
+  height: 450px !important;
   width: 100%;
   display: flex;
   align-items: center;
@@ -713,4 +715,155 @@ article {
   }
 }
 
+.image-heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 0 300px 4px 0; /* sağdan boşluk ekledik */
+  border-bottom: 2px solid #008000;
+  font-weight: bold;
+  font-size: 16px;
+  color: #008000;
+  width: fit-content;
+}
 
+.custom-card-gallery {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.card-row {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-bottom: 40px;
+}
+
+.center-row {
+  justify-content: center; /* Ortadaki satırı ortala */
+}
+
+.card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.small-card {
+  flex: 0 0 50%; /* Küçük kartlar genişliği */
+  max-width: 400px;
+}
+
+.large-card {
+  flex: 0 0 60%; /* Büyük kart genişliği */
+  max-width: 600px;
+}
+
+.card h5 {
+  margin-bottom: 8px;
+  color: #008000;
+  font-weight: 700;
+}
+
+.card p {
+  font-size: 14px;
+  color: #333;
+}
+
+.history-section {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.history-heading span {
+  color: #008000;
+  font-weight: bold;
+  font-size: 20px;
+  display: block;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.history-content p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .card-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .small-card,
+  .large-card {
+    flex: 0 0 90%;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .history-section {
+    padding: 15px;
+    margin: 20px 10px;
+  }
+
+  .history-content p {
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .history-heading span {
+    font-size: 18px;
+  }
+}
+
+.altyapiSwiper {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.altyapiSwiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.altyapiSwiper .swiper-wrapper {
+  height: 100%;
+}
+
+.altyapiSwiper .swiper-slide {
+  height: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
