@@ -21,6 +21,10 @@
         </ul>
       </div>
     </nav>
+
+    <h1>En Sevdiğim Oyunlar</h1>
+    <div class="game-container" id="gameContainer"></div>
+
 <footer>
   <div class="footer-container">
     <p>© 2025 Yunus Emre Kurnalı - Tüm hakları saklıdır.</p>
@@ -33,5 +37,48 @@
     </div>
   </div>
 </footer>
+
+<script>
+    const games = [
+        "The Elder Scrolls V: Skyrim",
+        "Hollow Knight",
+        "Elden Ring",
+        "Stardew Valley",
+        "The Witcher 3: Wild Hunt",
+        "Red Dead Redemption 2"
+      ];
+
+      const apiKey = "3a82fe7fd57844feaa4ae1c5947d6074";
+
+      async function fetchGameData(gameName) {
+        const response = await fetch(`https://api.rawg.io/api/games?search=${encodeURIComponent(gameName)}&key=${apiKey}`);
+        const data = await response.json();
+        return data.results[0];
+      }
+
+      async function displayGames() {
+        const container = document.getElementById("gameContainer");
+
+        for (let name of games) {
+          const game = await fetchGameData(name);
+          if (!game) continue;
+
+          const card = document.createElement("div");
+          card.className = "game-card";
+
+          card.innerHTML = `
+            <img src="${game.background_image}" alt="${game.name}" />
+            <div class="game-info">
+              <div class="game-title">${game.name}</div>
+              <div class="game-rating">Metacritic: ${game.metacritic ?? "N/A"}</div>
+            </div>
+          `;
+
+          container.appendChild(card);
+        }
+      }
+
+      displayGames();
+  </script>
   </body>
 </html>
