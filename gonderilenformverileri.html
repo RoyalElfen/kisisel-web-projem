@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form Gönderildi</title>
+  <link rel="stylesheet" href="Assets/css/style.css" />
+</head>
+<body>
+
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo"><a href="index.html">Yunus Emre Kurnalı</a></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Hakkımda</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="sehrim.html">Şehrim</a></li>
+          <li><a href="takimimiz.html">Takımımız</a></li>
+          <li><a href="ilgialanlarim.html">İlgi Alanlarım</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="login.html">Giriş Yap</a></li>
+        </ul>
+      </div>
+    </nav>
+
+ <main class="container my-5">
+  <div class="contact-wrapper">
+    <div class="contact-header">Form Başarıyla Gönderildi</div>
+    <div class="contact-body" id="formResults">
+      <div class="alert alert-danger">
+        <h4>Hata!</h4>
+        <p>Gönderilen form verisi bulunamadı.</p>
+        <p>Lütfen iletişim formunu doldurunuz.</p>
+      </div>
+    </div>
+    <div class="button-group text-center">
+      <a href="iletisim.html" class="btn btn-primary">Yeni Form Oluştur</a>
+      <a href="index.html" class="btn btn-secondary">Ana Sayfa</a>
+    </div>
+  </div>
+</main>
+  <footer>
+      <div class="footer-container">
+        <p>© 2025 Yunus Emre Kurnalı - Tüm hakları saklıdır.</p>
+        <div class="footer-links">
+          <span class="footer-divider"></span>
+          <a href="iletisim.html">İletişim</a>
+          <span class="footer-divider"></span>
+          <a href="login.html">Giriş Yap</a>
+          <span class="footer-divider"></span>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Kontrol: Temel alanlardan biri yoksa hatalı gönderimdir
+    if (!urlParams.has('firstName') || !urlParams.has('email')) return;
+
+    const decode = (key) => decodeURIComponent(urlParams.get(key) || "Belirtilmemiş");
+
+    const complaints = urlParams.getAll('nedenler');
+    const complaintList = complaints.length > 0 ? complaints.join(', ') : "Belirtilmemiş";
+
+    const resultsHTML = `
+      <ul class="form-results-list">
+        <li><strong>Ad:</strong> ${decode('firstName')}</li>
+        <li><strong>Soyad:</strong> ${decode('lastName')}</li>
+        <li><strong>E-posta:</strong> ${decode('email')}</li>
+        <li><strong>Telefon:</strong> ${decode('telefon')}</li>
+        <li><strong>Cinsiyet:</strong> ${decode('cinsiyet')}</li>
+        <li><strong>Şehir:</strong> ${decode('sehir')}</li>
+        <li><strong>Doğum Tarihi:</strong> ${decode('dogumTarihi')}</li>
+        <li><strong>Şikayet Konuları:</strong> ${complaintList}</li>
+        <li><strong>Mesaj:</strong> ${decode('message')}</li>
+        <li><strong>Form Kaynağı:</strong> ${decode('kaynak')}</li>
+        <li><strong>Dosya:</strong> (Dosya yükleme sadece POST ile sunucu tarafında işlenebilir.)</li>
+      </ul>
+    `;
+
+    document.getElementById('formResults').innerHTML = resultsHTML;
+  });
+</script>
+</body>
+</html>

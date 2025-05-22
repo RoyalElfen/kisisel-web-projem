@@ -968,3 +968,99 @@ article {
     grid-template-columns: repeat(2, 1fr); /* Tabletlerde 2 kart */
   }
 }
+
+
+/* style.css */
+
+.contact-wrapper {
+  background: #fff;
+  max-width: 600px;
+  margin: 50px auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+.contact-header {
+  background-color: #333;
+  color: white;
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 8px 8px 0 0;
+}
+
+.contact-body {
+  padding: 2rem;
+}
+
+.required::after {
+  content: " *";
+  color: red;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 1rem;
+}
+
+.col {
+  flex: 1;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: black;
+}
+
+.btn-success {
+  background-color: #28a745;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
