@@ -4,38 +4,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Giriş</title>
-    <link rel="stylesheet" href="Assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <nav class="navbar">
-      <div class="container">
-        <div class="logo"><a href="index.html">Yunus Emre Kurnalı</a></div>
-        <ul class="nav-links">
-          <li><a href="index.html">Hakkımda</a></li>
-          <li><a href="cv.html">CV</a></li>
-          <li><a href="sehrim.html">Şehrim</a></li>
-          <li><a href="takimimiz.html">Takımımız</a></li>
-          <li><a href="ilgialanlarim.html">İlgi Alanlarım</a></li>
-          <li><a href="iletisim.html">İletişim</a></li>
-          <li><a href="login.html">Giriş Yap</a></li>
-        </ul>
+    <div class="page-wrapper">
+      <nav class="navbar">
+        <div class="container">
+          <div class="logo"><a href="index.html">Yunus Emre Kurnalı</a></div>
+          <ul class="nav-links">
+            <li><a href="index.html">Hakkımda</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="sehrim.html">Şehrim</a></li>
+            <li><a href="takimimiz.html">Takımımız</a></li>
+            <li><a href="ilgialanlarim.html">İlgi Alanlarım</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+            <li><a href="login.html">Giriş Yap</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="login-wrapper">
+        <div class="login-header">Giriş Yap</div>
+
+        <form onsubmit="return validateForm()" action="giris.php" method="POST">
+          <input
+            type="email"
+            name="username"
+            id="username"
+            class="form-control"
+            placeholder="E-posta"
+            required
+          />
+          <div id="error-message" class="error-message" style="display: none"></div>
+
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="form-control"
+            placeholder="Şifre"
+            required
+          />
+          <button type="submit" class="btn">Giriş Yap</button>
+        </form>
       </div>
-    </nav>
 
-    <h1>Giriş Yap</h1>
-    <p>Giriş formu burada olacak.</p>
-
-   <footer>
-  <div class="footer-container">
-    <p>© 2025 Yunus Emre Kurnalı - Tüm hakları saklıdır.</p>
-    <div class="footer-links">
-      <span class="footer-divider"></span>
-      <a href="iletisim.html">İletişim</a>
-      <span class="footer-divider"></span>
-      <a href="login.html">Giriş Yap</a>
-      <span class="footer-divider"></span>
+      <footer>
+        <div class="footer-container">
+          <p>© 2025 Yunus Emre Kurnalı - Tüm hakları saklıdır.</p>
+          <div class="footer-links">
+            <span class="footer-divider"></span>
+            <a href="iletisim.html">İletişim</a>
+            <span class="footer-divider"></span>
+            <a href="login.html">Giriş Yap</a>
+            <span class="footer-divider"></span>
+          </div>
+        </div>
+      </footer>
     </div>
-  </div>
-</footer>
+
+    <script>
+      function showError(message) {
+        const errorBox = document.getElementById("error-message");
+        errorBox.innerText = message;
+        errorBox.style.display = "block";
+      }
+
+      function validateForm() {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        if (!emailPattern.test(username)) {
+          showError("Geçerli bir e-posta adresi girin.");
+          return false;
+        }
+
+        if (password === "") {
+          showError("Şifre boş bırakılamaz.");
+          return false;
+        }
+
+        return true;
+      }
+    </script>
   </body>
 </html>

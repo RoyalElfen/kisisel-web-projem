@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>İletişim</title>
-    <link rel="stylesheet" href="Assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   </head>
   <body>
@@ -29,8 +29,9 @@
         <div class="contact-body">
           <form
             id="iletisimForm"
-            method="GET"
-            action="gonderilenformverileri.html"
+            method="POST"
+            action="formGonder.php"
+            enctype="multipart/form-data"
           >
             <div class="row">
               <div class="col">
@@ -114,7 +115,7 @@
               <label
                 ><input
                   type="checkbox"
-                  name="nedenler"
+                  name="nedenler[]"
                   value="Uygunsuz İçerik"
                   v-model="nedenler"
                 />
@@ -123,7 +124,7 @@
               <label
                 ><input
                   type="checkbox"
-                  name="nedenler"
+                  name="nedenler[]"
                   value="Site İşleyişi"
                   v-model="nedenler"
                 />
@@ -132,7 +133,7 @@
               <label
                 ><input
                   type="checkbox"
-                  name="nedenler"
+                  name="nedenler[]"
                   value="Sunucu Hatası"
                   v-model="nedenler"
                 />
@@ -141,7 +142,7 @@
               <label
                 ><input
                   type="checkbox"
-                  name="nedenler"
+                  name="nedenler[]"
                   value="Diğer"
                   v-model="nedenler"
                 />
@@ -168,35 +169,37 @@
             <!-- Gizli Alan -->
             <input type="hidden" name="kaynak" value="iletisimSayfasi" />
 
-            <button
-              type="button"
-              @click="validateWithJS"
-              class="btn btn-primary"
-            >
-              JS ile Kontrol Et
-            </button>
-            <button
-              type="button"
-              @click="validateWithVue"
-              class="btn btn-secondary"
-            >
-              Vue ile Kontrol Et
-            </button>
-            <button type="reset" class="btn btn-warning">Temizle</button>
-            <button
-              type="submit"
-              class="btn btn-success"
-              :disabled="!formHazir"
-            >
-              Gönder
-            </button>
-            <button
-              type="button"
-              class="btn btn-info"
-              onclick="window.location.href='gonderilenformverileri.html'"
-            >
-              Gönderilen Form Verilerini Gör
-            </button>
+            <div class="button-group">
+              <button
+                type="button"
+                @click="validateWithJS"
+                class="btn btn-primary"
+              >
+                JS ile Kontrol Et
+              </button>
+              <button
+                type="button"
+                @click="validateWithVue"
+                class="btn btn-secondary"
+              >
+                Vue ile Kontrol Et
+              </button>
+              <button type="reset" class="btn btn-warning">Temizle</button>
+              <button
+                type="submit"
+                class="btn btn-success"
+                :disabled="!formHazir"
+              >
+                Gönder
+              </button>
+              <button
+                type="button"
+                class="btn btn-info"
+                onclick="window.location.href='gonderilenformverileri.html'"
+              >
+                Gönderilen Form Verilerini Gör
+              </button>
+            </div>
           </form>
         </div>
       </div>
