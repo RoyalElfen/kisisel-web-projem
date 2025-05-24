@@ -15,10 +15,12 @@ if ($username === $dogru_kullanici && $password === $dogru_sifre) {
     <html lang="tr">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Giriş Başarılı</title>
         <link rel="stylesheet" href="assets/css/style.css" />
     </head>
     <body>
+      <div class="page-wrapper">
         <nav class="navbar">
       <div class="container">
         <div class="logo"><a href="index.html">Yunus Emre Kurnalı</a></div>
@@ -53,6 +55,7 @@ if ($username === $dogru_kullanici && $password === $dogru_sifre) {
         </div>
       </div>
     </footer>
+    </div>
     </body>
     </html>
     <?php

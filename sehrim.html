@@ -9,195 +9,342 @@
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <nav class="navbar">
-      <div class="container">
-        <div class="logo"><a href="index.html">Yunus Emre Kurnalı</a></div>
-        <ul class="nav-links">
-          <li><a href="index.html">Hakkımda</a></li>
-          <li><a href="cv.html">CV</a></li>
-          <li><a href="sehrim.html">Şehrim</a></li>
-          <li><a href="takimimiz.html">Takımımız</a></li>
-          <li><a href="ilgialanlarim.html">İlgi Alanlarım</a></li>
-          <li><a href="iletisim.html">İletişim</a></li>
-          <li><a href="login.html">Giriş Yap</a></li>
-        </ul>
-      </div>
-    </nav>
+      <!-- Bootstrap Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">Yunus Emre Kurnalı</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Hakkımda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="cv.html">CV</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="sehrim.html">Şehrim</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="takimimiz.html">Takımımız</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="ilgialanlarim.html">İlgi Alanlarım</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="iletisim.html">İletişim</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Giriş Yap</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-    <header>
-      <h1>Bursa</h1>
-      <p class="subtitle">Yeşil Bursa</p>
-    </header>
+      <!-- Başlık -->
+      <header class="text-center py-4">
+        <h1 class="display-4 fw-bold">Bursa</h1>
+        <p class="lead text-success fs-3">Yeşil Bursa</p>
+      </header>
 
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <a href="#suuctu">
-          <img
-            src="Assets/img/sehrim/slider/suuctu-selalesi.jpg"
-            alt="Görsel 1"
-          />
-          <div class="caption-overlay">Suuçtu Şelalesi</div>
-          </a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#ulucami">
-          <img
-            src="Assets/img/sehrim/slider/BursaUluCami.jpeg"
-            alt="Görsel 2"
-          />
-          <div class="caption-overlay">Bursa Ulu Cami</div>
-          </a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#cumalikizik">
-          <img src="Assets/img/sehrim/slider/cumalikizik.jpg" alt="Görsel 3" />
-          <div class="caption-overlay">Cumalıkızık Köyü</div>
-          </a>
-        </div>
-        <a href="#misikoyu">
-        <div class="swiper-slide">
-          <img src="Assets/img/sehrim/slider/misi_koyu.jpg" alt="Görsel 4" />
-          <div class="caption-overlay">Misi Köyü</div>
-        </a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#tophane">
-          <img
-            src="Assets/img/sehrim/slider/TOPHANESAATKULESI.jpg"
-            alt="Görsel 3"/>
+      <!-- Swiper Slider -->
+      <div class="swiper mySwiper mb-5">
+        <div class="swiper-wrapper">
+          <!-- Her bir slayt -->
+          <div class="swiper-slide">
+            <a href="#suuctu">
+              <img
+                src="assets/img/sehrim/slider/suuctu-selalesi.jpg"
+                alt="Suuçtu Şelalesi"
+                class="img-fluid w-100 h-100 object-fit-cover"
+              />
+              <div class="caption-overlay">Suuçtu Şelalesi</div>
             </a>
-          <div class="caption-overlay">Tophane Saat Kulesi</div>
+          </div>
+          <div class="swiper-slide">
+            <a href="#ulucami">
+              <img
+                src="assets/img/sehrim/slider/BursaUluCami.jpeg"
+                alt="BursaUluCami"
+                class="img-fluid w-100 h-100 object-fit-cover"
+              />
+              <div class="caption-overlay">Bursa UluCami</div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#cumalikizik">
+              <img
+                src="assets/img/sehrim/slider/cumalikizik.jpg"
+                alt="Cumalıkızık"
+                class="img-fluid w-100 h-100 object-fit-cover"
+              />
+              <div class="caption-overlay">Cumalıkızık</div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#misikoyu">
+              <img
+                src="assets/img/sehrim/slider/misi_koyu.jpg"
+                alt="Misi Köyü"
+                class="img-fluid w-100 h-100 object-fit-cover"
+              />
+              <div class="caption-overlay">Misi Köyü</div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#tophane">
+              <img
+                src="assets/img/sehrim/slider/TOPHANESAATKULESI.jpg"
+                alt="TOPHANESAATKULESI"
+                class="img-fluid w-100 h-100 object-fit-cover"
+              />
+              <div class="caption-overlay">Tophane Saat Kulesi</div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#uludag">
+              <img
+                src="assets/img/sehrim/slider/Uludag.jpeg"
+                alt="Uludağ"
+                class="img-fluid w-100 h-100 object-fit-cover"
+              />
+              <div class="caption-overlay">Uludağ</div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#yesilturbe">
+              <img
+                src="assets/img/sehrim/slider/yesilturbe.jpg"
+                alt="Yeşil Türbe"
+                class="img-fluid w-100 h-100 object-fit-cover"
+              />
+              <div class="caption-overlay">Yeşil Türbe</div>
+            </a>
+          </div>
         </div>
-        <div class="swiper-slide">
-          <a href="#uludag">
-          <img src="Assets/img/sehrim/slider/Uludag.jpeg" alt="Görsel 5" />
-          <div class="caption-overlay">Uludağ</div>
-          </a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#yesilturbe">
-          <img src="Assets/img/sehrim/slider/yesilturbe.jpg" alt="Görsel 6" />
-          <div class="caption-overlay">Yeşil Türbe</div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Pagination -->
-      <div class="swiper-pagination"></div>
-
-      <!-- Navigation buttons -->
+        <div class="swiper-pagination"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-    </div>
+      </div>
 
-    <section class="bursa-info">
-      <div class="info-container">
-        <div class="info-column">
-          <h2>Bursa'nın Tarihçesi</h2>
-          <p>
-            Bursa, Osmanlı İmparatorluğu'nun ilk başkentidir. M.Ö. 4. yüzyılda
-            Bitinya Krallığı döneminde kurulmuş ve tarih boyunca önemli bir
-            ticaret ve kültür merkezi olmuştur.
+      <!-- Bursa Bilgisi -->
+      <section class="container py-5">
+        <div class="row justify-content-center text-start g-4">
+          <div class="col-md-5">
+            <h2 class="text-success">Bursa'nın Tarihçesi</h2>
+            <p>
+              Bursa, Osmanlı İmparatorluğu'nun ilk başkentidir. M.Ö. 4. yüzyılda
+              Bitinya Krallığı döneminde kurulmuş ve tarih boyunca önemli bir
+              ticaret ve kültür merkezi olmuştur.
+            </p>
+          </div>
+          <div class="col-md-5">
+            <h2 class="text-success">Coğrafi Konumu</h2>
+            <p>
+              Marmara Bölgesi’nin güneyinde yer alan Bursa, hem sanayi hem de
+              doğal güzellikleriyle dikkat çeker. Uludağ, şehir için önemli bir
+              turistik merkezdir.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Yerler Detayları -->
+      <section class="container py-4" id="suuctu">
+        <div class="row justify-content-center align-items-start g-4">
+          <div class="col-md-5">
+            <img
+              src="assets/img/sehrim/slider/suuctu-selalesi.jpg"
+              class="img-fluid rounded shadow-sm me-3 w-75"
+              alt="Suuçtu Şelalesi"
+            />
+            </div>
+            <div class="col-md-5">
+              <h5 class="text-success">Suuçtu Şelalesi</h5>
+              <p>
+                Bursa’nın Mustafakemalpaşa ilçesi sınırları içindedir ve ilçe
+                merkezine 17 km uzaklıktadır. Bir fay hattının çökmesi sonucu
+                oluşan Şelale, 38 metre yükseklikten dökülmektedir. Mesire ve
+                piknik alanı da bulunan Suuçtu Şelalesi, etrafını saran Kayın
+                ağaçları ve serin havası ile tam bir oksijen deposudur.
+              </p>
+            </div>
+          </div>
+      </section>
+      <section class="container py-4" id="ulucami">
+        <div class="row justify-content-center align-items-start g-4">
+          <div class="col-md-5">
+            <img
+              src="assets/img/sehrim/slider/BursaUluCami.jpeg"
+              class="img-fluid rounded shadow-sm me-3 w-75"
+              alt="Bursa UluCami"
+            />
+            </div>
+            <div class="col-md-5">
+              <h5 class="text-success">Bursa Ulu Cami</h5>
+              <p>
+                Bursa Ulu Cami, 1399 yılında Yıldırım Bayezid tarafından
+                yaptırılmış ve Osmanlı erken dönem mimarisinin önemli
+                örneklerinden biridir. 20 kubbesiyle dikkat çeken cami, hem
+                ibadet hem de mimari açıdan büyük bir öneme sahiptir. İçindeki
+                hat sanatı örnekleri ve şadırvanı ile ziyaretçileri etkiler.
+              </p>
+            </div>
+          </div>
+      </section>
+      <section class="container py-4" id="cumalikizik">
+        <div class="row justify-content-center align-items-start g-4">
+          <div class="col-md-5">
+            <img
+              src="assets/img/sehrim/slider/cumalikizik.jpg"
+              class="img-fluid rounded shadow-sm me-3 w-75"
+              alt="Cumalıkızık"
+            />
+            </div>
+            <div class="col-md-5">
+              <h5 class="text-success">Cumalıkızık</h5>
+              <p>
+                Cumalıkızık, Bursa’nın Yıldırım ilçesinde Uludağ’ın eteklerinde
+                yer alan, Osmanlı döneminden günümüze kadar ulaşmış tarihi bir
+                köydür. Arnavut kaldırımlı sokakları, cumbalı evleri ve otantik
+                atmosferiyle dikkat çeker. 700 yıllık geçmişiyle yaşayan bir
+                tarih olan köy, UNESCO Dünya Mirası Listesi'nde de yer
+                almaktadır.
+              </p>
+            </div>
+          </div>
+      </section>
+      <section class="container py-4" id="uludag">
+        <div class="row justify-content-center align-items-start g-4">
+          <div class="col-md-5">
+            <img
+              src="assets/img/sehrim/slider/Uludag.jpeg"
+              class="img-fluid rounded shadow-sm me-3 w-75"
+              alt="Uludağ"
+            />
+          </div>
+          <div class="col-md-5">
+            <h5 class="text-success">Uludağ</h5>
+            <p>
+              Uludağ, Türkiye’nin en önemli kış turizmi merkezlerinden biridir.
+              Kışın kayak ve snowboard, yazın ise kamp ve doğa yürüyüşleri için
+              idealdir. Aynı zamanda bitki örtüsü açısından oldukça zengindir.
+              Bursa manzarasını kuşbakışı izleyebileceğiniz eşsiz bir yerdir.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="container py-4" id="misikoyu">
+        <div class="row justify-content-center align-items-start g-4">
+          <div class="col-md-5">
+            <img
+              src="assets/img/sehrim/slider/misi_koyu.jpg"
+              class="img-fluid rounded shadow-sm me-3 w-75"
+              alt="Misi Köyü"
+            />
+            </div>
+            <div class="col-md-5">
+              <h5 class="text-success">Misi Köyü</h5>
+              <p>
+                Misi Köyü, Bursa'nın Nilüfer ilçesinde, şehir merkezine oldukça
+                yakın bir konumda bulunur. 2000 yıllık geçmişe sahip olan köy,
+                doğal ve tarihi dokusunu korumayı başarmıştır. Restore edilen
+                taş evleri, sanat atölyeleri ve kafe-restoranlarıyla kültürel
+                bir cazibe merkezine dönüşmüştür. Nilüfer Çayı kıyısında yürüyüş
+                yapma imkânı sunar.
+              </p>
+            </div>
+          </div>
+      </section>
+      <section class="container py-4" id="tophane">
+        <div class="row justify-content-center align-items-start g-4">
+          <div class="col-md-5">
+            <img
+              src="assets/img/sehrim/slider/TOPHANESAATKULESI.jpg"
+              class="img-fluid rounded shadow-sm me-3 w-75"
+              alt="Tophane Saat Kulesi"
+            />
+            </div>
+            <div class="col-md-5">
+              <h5 class="text-success">Tophane Saat Kulesi</h5>
+              <p>
+                Tophane, Bursa'nın en yüksek noktalarından biri olup şehri
+                kuşbakışı izleyebileceğiniz tarihi bir bölgedir. Osman Gazi ve
+                Orhan Gazi türbeleri burada yer alır. Aynı zamanda Tophane Saat
+                Kulesi de bu alandadır. Ramazan ayında yapılan top atışlarıyla
+                da bilinir.
+              </p>
+            </div>
+          </div>
+      </section>
+      <section class="container py-4" id="yesilturbe">
+        <div class="row justify-content-center align-items-start g-4">
+          <div class="col-md-5">
+            <img
+              src="assets/img/sehrim/slider/yesilturbe.jpg"
+              class="img-fluid rounded shadow-sm me-3 w-75"
+              alt="Yeşil Türbe"
+            />
+            </div>
+            <div class="col-md-5">
+              <h5 class="text-success">Yeşil Türbe</h5>
+              <p>
+                Yeşil Türbe, Osmanlı padişahı Çelebi Mehmet’in türbesidir ve
+                Bursa’nın simgelerindendir. 1421 yılında inşa edilen yapı, adını
+                dış cephesindeki yeşil çinilerden alır. Bursa’nın Yeşil semtinde
+                yer alan türbe, Yeşil Camii ile birlikte tarihi bir külliye
+                oluşturur. Mimari detayları ve süslemeleriyle dikkat çeker.
+              </p>
+            </div>
+          </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-light py-4 mt-5 text-center">
+        <div class="container">
+          <p class="mb-3 mb-md-2">
+            © 2025 Yunus Emre Kurnalı - Tüm hakları saklıdır.
           </p>
+          <div
+            class="d-flex justify-content-center align-items-center flex-wrap"
+          >
+            <span class="text-muted mx-2">|</span>
+            <a
+              href="iletisim.html"
+              class="text-decoration-none mx-2 text-dark fw-semibold"
+              >İletişim</a
+            >
+            <span class="text-muted mx-2">|</span>
+            <a
+              href="login.html"
+              class="text-decoration-none mx-2 text-dark fw-semibold"
+              >Giriş Yap</a
+            >
+            <span class="text-muted mx-2">|</span>
+          </div>
         </div>
-        <div class="info-column">
-          <h2>Coğrafi Konumu</h2>
-          <p>
-            Marmara Bölgesi’nin güneyinde yer alan Bursa, hem sanayi hem de
-            doğal güzellikleriyle dikkat çeker. Uludağ, şehir için önemli bir
-            turistik merkezdir.
-          </p>
-        </div>
-      </div>
-    </section>
+      </footer>
 
-    <section class="place-details">
-  <div class="detail-container">
-    <div class="detail-block" id="suuctu">
-      <img src="Assets/img/sehrim/slider/suuctu-selalesi.jpg" alt="Suuçtu Şelalesi" />
-      <div class="detail-text">
-        <h3>Suuçtu Şelalesi</h3>
-        <p>Bursa’nın  Mustafakemalpaşa ilçesi sınırları içindedir ve ilçe merkezine 17 km uzaklıktadır. Bir fay hattının çökmesi sonucu oluşan Şelale, 38 metre yükseklikten dökülmektedir. Mesire ve piknik alanı da bulunan Suuçtu Şelalesi, etrafını saran Kayın ağaçları ve serin havası ile tam bir oksijen deposudur</p>
-      </div>
-    </div>
-
-    <div class="detail-block" id="ulucami">
-      <img src="Assets/img/sehrim/slider/BursaUluCami.jpeg" alt="Bursa Ulu Cami" />
-      <div class="detail-text">
-        <h3>Bursa Ulu Cami</h3>
-        <p>Bursa Ulu Cami, 1399 yılında Yıldırım Bayezid tarafından yaptırılmış ve Osmanlı erken dönem mimarisinin önemli örneklerinden biridir. 20 kubbesiyle dikkat çeken cami, hem ibadet hem de mimari açıdan büyük bir öneme sahiptir. İçindeki hat sanatı örnekleri ve şadırvanı ile ziyaretçileri etkiler.</p>
-      </div>
-    </div>
-
-    <div class="detail-block" id="cumalikizik">
-      <img src="Assets/img/sehrim/slider/cumalikizik.jpg" alt="Cumalıkızık" />
-      <div class="detail-text">
-        <h3>Cumalıkızık</h3>
-        <p>Cumalıkızık, Bursa’nın Yıldırım ilçesinde Uludağ’ın eteklerinde yer alan, Osmanlı döneminden günümüze kadar ulaşmış tarihi bir köydür. Arnavut kaldırımlı sokakları, cumbalı evleri ve otantik atmosferiyle dikkat çeker. 700 yıllık geçmişiyle yaşayan bir tarih olan köy, UNESCO Dünya Mirası Listesi'nde de yer almaktadır.
-</p>
-      </div>
-    </div>
-
-    <div class="detail-block" id="uludag">
-      <img src="Assets/img/sehrim/slider/Uludag.jpeg" alt="Uludağ" />
-      <div class="detail-text">
-        <h3>Uludağ</h3>
-        <p>Uludağ, Türkiye’nin en önemli kış turizmi merkezlerinden biridir. Kışın kayak ve snowboard, yazın ise kamp ve doğa yürüyüşleri için idealdir. Aynı zamanda bitki örtüsü açısından oldukça zengindir. Bursa manzarasını kuşbakışı izleyebileceğiniz eşsiz bir yerdir.</p>
-      </div>
-    </div>
-
-    <div class="detail-block" id="misikoyu">
-      <img src="Assets/img/sehrim/slider/misi_koyu.jpg" alt="Misi Köyü" />
-      <div class="detail-text">
-        <h3>Misi Köyü</h3>
-        <p>Misi Köyü, Bursa'nın Nilüfer ilçesinde, şehir merkezine oldukça yakın bir konumda bulunur. 2000 yıllık geçmişe sahip olan köy, doğal ve tarihi dokusunu korumayı başarmıştır. Restore edilen taş evleri, sanat atölyeleri ve kafe-restoranlarıyla kültürel bir cazibe merkezine dönüşmüştür. Nilüfer Çayı kıyısında yürüyüş yapma imkânı sunar.
-
-</p>
-      </div>
-    </div>
-
-    <div class="detail-block" id="tophane">
-      <img src="Assets/img/sehrim/slider/TOPHANESAATKULESI.jpg" alt="Tophane Saat Kulesi" />
-      <div class="detail-text">
-        <h3>Tophane Saat Kulesi</h3>
-        <p>Tophane, Bursa'nın en yüksek noktalarından biri olup şehri kuşbakışı izleyebileceğiniz tarihi bir bölgedir. Osman Gazi ve Orhan Gazi türbeleri burada yer alır. Aynı zamanda Tophane Saat Kulesi de bu alandadır. Ramazan ayında yapılan top atışlarıyla da bilinir.
-
-</p>
-      </div>
-    </div>
-
-    <div class="detail-block" id="yesilturbe">
-      <img src="Assets/img/sehrim/slider/yesilturbe.jpg" alt="Yeşil Türbe" />
-      <div class="detail-text">
-        <h3>Yeşil Türbe</h3>
-        <p>Yeşil Türbe, Osmanlı padişahı Çelebi Mehmet’in türbesidir ve Bursa’nın simgelerindendir. 1421 yılında inşa edilen yapı, adını dış cephesindeki yeşil çinilerden alır. Bursa’nın Yeşil semtinde yer alan türbe, Yeşil Camii ile birlikte tarihi bir külliye oluşturur. Mimari detayları ve süslemeleriyle dikkat çeker.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-    <footer>
-      <div class="footer-container">
-        <p>© 2025 Yunus Emre Kurnalı - Tüm hakları saklıdır.</p>
-        <div class="footer-links">
-          <span class="footer-divider"></span>
-          <a href="iletisim.html">İletişim</a>
-          <span class="footer-divider"></span>
-          <a href="login.html">Giriş Yap</a>
-          <span class="footer-divider"></span>
-        </div>
-      </div>
-    </footer>
+    <!-- Swiper & Bootstrap JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       window.addEventListener("load", function () {
-        const swiper = new Swiper(".mySwiper", {
+        new Swiper(".mySwiper", {
           loop: true,
           pagination: {
             el: ".swiper-pagination",

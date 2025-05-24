@@ -7,9 +7,39 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+<div class="page-wrapper">
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo"><a href="index.html">Yunus Emre Kurnalı</a></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Hakkımda</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="sehrim.html">Şehrim</a></li>
+          <li><a href="takimimiz.html">Takımımız</a></li>
+          <li><a href="ilgialanlarim.html">İlgi Alanlarım</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="login.html">Giriş Yap</a></li>
+        </ul>
+      </div>
+    </nav>
+
   <div class="contact-wrapper">
     <div class="contact-header">Gönderilen Form Verileri</div>
     <div class="contact-body">
+
+    <footer>
+      <div class="footer-container">
+        <p>© 2025 Yunus Emre Kurnalı - Tüm hakları saklıdır.</p>
+        <div class="footer-links">
+          <span class="footer-divider"></span>
+          <a href="iletisim.html">İletişim</a>
+          <span class="footer-divider"></span>
+          <a href="login.html">Giriş Yap</a>
+          <span class="footer-divider"></span>
+        </div>
+      </div>
+    </footer>
+    </div>
       <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $ad = $_POST["firstName"] ?? "Belirtilmemiş";
