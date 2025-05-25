@@ -6,21 +6,49 @@
     <title>İletişim</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="page-wrapper">
-    <nav class="navbar">
+    <!-- NAVBAR  Boostrap ile uyumlu-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div class="container">
-        <div class="logo"><a href="index.html">Yunus Emre Kurnalı</a></div>
-        <ul class="nav-links">
-          <li><a href="index.html">Hakkımda</a></li>
-          <li><a href="cv.html">CV</a></li>
-          <li><a href="sehrim.html">Şehrim</a></li>
-          <li><a href="takimimiz.html">Takımımız</a></li>
-          <li><a href="ilgialanlarim.html">İlgi Alanlarım</a></li>
-          <li><a href="iletisim.html">İletişim</a></li>
-          <li><a href="login.html">Giriş Yap</a></li>
-        </ul>
+        <a class="navbar-brand" href="index.html">Yunus Emre Kurnalı</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Hakkımda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cv.html">CV</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sehrim.html">Şehrim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="takimimiz.html">Takımımız</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ilgialanlarim.html">İlgi Alanlarım</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="iletisim.html">İletişim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Giriş Yap</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -34,54 +62,83 @@
             action="formGonder.php"
             enctype="multipart/form-data"
           >
-            <div class="row">
+            <div class="row mb-3">
               <div class="col">
-                <label class="form-label required">Ad</label>
+                <label for="firstName" class="form-label">Ad</label>
                 <input
                   type="text"
-                  v-model="ad"
+                  id="firstName"
                   name="firstName"
                   class="form-control"
+                  v-model="ad"
+                  :class="{ 'is-invalid': errors.ad }"
                 />
+                <div v-if="errors.ad" class="invalid-feedback">
+                  Lütfen adınızı giriniz.
+                </div>
               </div>
               <div class="col">
-                <label class="form-label required">Soyad</label>
+                <label for="lastName" class="form-label">Soyad</label>
                 <input
                   type="text"
-                  v-model="soyad"
+                  id="lastName"
                   name="lastName"
                   class="form-control"
+                  v-model="soyad"
+                  :class="{ 'is-invalid': errors.soyad }"
                 />
+                <div v-if="errors.soyad" class="invalid-feedback">
+                  Lütfen soyadınızı giriniz.
+                </div>
               </div>
             </div>
 
-            <!-- Cinsiyet (radio) -->
-            <label class="form-label">Cinsiyet</label>
-            <div class="row mb-1">
-              <label style="margin-right: 10px">
-                <input type="radio" name="cinsiyet" value="Erkek" /> Erkek
-              </label>
-              <label style="margin-right: 10px">
-                <input type="radio" name="cinsiyet" value="Kadın" /> Kadın
-              </label>
+            <div class="mb-3 d-flex align-items-center">
+              <label class="form-label me-3 mb-0">Cinsiyet</label>
+              <div class="form-check form-check-inline mb-0">
+                <input
+                  class="form-check-input"
+                  v-model="cinsiyet"
+                  type="radio"
+                  name="cinsiyet"
+                  value="Erkek"
+                  id="cinsiyetErkek"
+                />
+                <label class="form-check-label" for="cinsiyetErkek"
+                  >Erkek</label
+                >
+              </div>
+              <div class="form-check form-check-inline mb-0">
+                <input
+                  class="form-check-input"
+                  v-model="cinsiyet"
+                  type="radio"
+                  name="cinsiyet"
+                  value="Kadın"
+                  id="cinsiyetKadin"
+                />
+                <label class="form-check-label" for="cinsiyetKadin"
+                  >Kadın</label
+                >
+              </div>
             </div>
 
-            <!-- Şehir ve Doğum Tarihi -->
-            <div class="row">
+            <div class="row mb-3">
               <div class="col">
-                <label class="form-label">Şehir</label>
-                <select name="sehir" class="form-control" v-model="sehir">
-                  <option value="">Lütfen seçiniz</option>
-                  <option value="İstanbul">İstanbul</option>
-                  <option value="Ankara">Ankara</option>
-                  <option value="Bursa">Bursa</option>
-                  <option value="İzmir">İzmir</option>
+                <label for="sehir" class="form-label">Şehir</label>
+                <select id="sehir" name="sehir" class="form-select" v-model="sehir">
+                  <option selected disabled>Şehir seçiniz</option>
+                  <option value="istanbul">İstanbul</option>
+                  <option value="ankara">Ankara</option>
+                  <option value="izmir">İzmir</option>
+                  <option value="bursa">Bursa</option>
                 </select>
               </div>
               <div class="col">
-                <label class="form-label">Doğum Tarihi</label>
+                <label for="dogum" class="form-label">Doğum Tarihi</label>
                 <input
                   type="date"
+                  id="dogum"
                   name="dogumTarihi"
                   class="form-control"
                   v-model="dogumTarihi"
@@ -89,99 +146,90 @@
               </div>
             </div>
 
-            <!-- E-posta -->
-            <label class="form-label required">E-posta</label>
-            <input
-              type="email"
-              v-model="email"
-              name="email"
-              class="form-control"
-              placeholder="ornek@mail.com"
-            />
-
-            <!-- İletişim Numarası -->
-            <label class="form-label required">İletişim Numarası</label>
-            <input
-              type="tel"
-              v-model="telefon"
-              name="telefon"
-              class="form-control"
-              pattern="[0-9]{10}"
-              placeholder="5XXXXXXXXX"
-            />
-
-            <!-- Şikayetçi Nedenleri (Checkbox) -->
-            <label class="form-label required">Şikayetçi Nedenleriniz</label>
-            <div class="row mb-1">
-              <label
-                ><input
-                  type="checkbox"
-                  name="nedenler[]"
-                  value="Uygunsuz İçerik"
-                  v-model="nedenler"
+            <div class="row mb-3">
+              <div class="col">
+                <label class="form-label required">E-posta</label>
+                <input
+                  v-model="email"
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="ornek@mail.com"
+                  :class="{'is-invalid': errors.email}"
                 />
-                Uygunsuz İçerik</label
-              ><br />
-              <label
-                ><input
-                  type="checkbox"
-                  name="nedenler[]"
-                  value="Site İşleyişi"
-                  v-model="nedenler"
+                <div v-if="errors.email" class="invalid-feedback">
+                  {{ errors.email }}
+                </div>
+              </div>
+              <div class="col">
+                <label class="form-label required">İletişim Numarası</label>
+                <input
+                  v-model="telefon"
+                  type="tel"
+                  name="telefon"
+                  class="form-control"
+                  placeholder="5XXXXXXXXX"
+                  :class="{'is-invalid': errors.telefon}"
                 />
-                Site İşleyişi</label
-              ><br />
-              <label
-                ><input
-                  type="checkbox"
-                  name="nedenler[]"
-                  value="Sunucu Hatası"
-                  v-model="nedenler"
-                />
-                Sunucu Hatası</label
-              ><br />
-              <label
-                ><input
-                  type="checkbox"
-                  name="nedenler[]"
-                  value="Diğer"
-                  v-model="nedenler"
-                />
-                Diğer</label
-              >
+                <div v-if="errors.telefon" class="invalid-feedback">
+                  {{ errors.telefon }}
+                </div>
+              </div>
             </div>
 
-            <!-- Mesaj Alanı -->
+            <label class="form-label required">Şikayetçi Nedenleriniz</label>
+            <div
+              class="form-check"
+              v-for="neden in ['Uygunsuz İçerik', 'Site İşleyişi', 'Sunucu Hatası', 'Diğer']"
+              :key="neden"
+            >
+              <input
+                class="form-check-input"
+                type="checkbox"
+                :value="neden"
+                v-model="nedenler"
+                :id="neden"
+                :class="{'is-invalid': errors.nedenler}"
+                name="nedenler[]"
+              />
+              <label class="form-check-label" :for="neden">{{ neden }}</label>
+            </div>
+            <div v-if="errors.nedenler" class="invalid-feedback d-block">
+              Lütfen en az bir neden seçiniz.
+            </div>
+
             <label class="form-label required">Mesaj</label>
             <textarea
               v-model="mesaj"
               name="message"
-              class="form-control"
               rows="4"
+              class="form-control"
               placeholder="Diğer seçtiyseniz burada belirtin..."
+              :class="{'is-invalid': errors.mesaj}"
             ></textarea>
+            <div v-if="errors.mesaj" class="invalid-feedback">
+              Lütfen mesajınızı giriniz.
+            </div>
 
-            <!-- Dosya Yükleme -->
             <label class="form-label"
               >Şikayetinize dair içerik varsa yükleyebilirsiniz</label
             >
             <input type="file" name="dosya" class="form-control" />
 
-            <!-- Gizli Alan -->
             <input type="hidden" name="kaynak" value="iletisimSayfasi" />
 
             <div class="button-group">
               <button
                 type="button"
-                @click="validateWithJS"
                 class="btn btn-primary"
+                @click="validateWithJS"
               >
                 JS ile Kontrol Et
               </button>
               <button
                 type="button"
-                @click="validateWithVue"
                 class="btn btn-secondary"
+                @click="validateWithVue"
               >
                 Vue ile Kontrol Et
               </button>
@@ -195,8 +243,8 @@
               </button>
               <button
                 type="button"
-                class="btn btn-info"
                 onclick="window.location.href='gonderilenformverileri.html'"
+                class="btn btn-info"
               >
                 Gönderilen Form Verilerini Gör
               </button>
@@ -205,20 +253,31 @@
         </div>
       </div>
     </div>
-    <footer>
-      <div class="footer-container">
-        <p>© 2025 Yunus Emre Kurnalı - Tüm hakları saklıdır.</p>
-        <div class="footer-links">
-          <span class="footer-divider"></span>
-          <a href="iletisim.html">İletişim</a>
-          <span class="footer-divider"></span>
-          <a href="login.html">Giriş Yap</a>
-          <span class="footer-divider"></span>
+    <!-- Footer-->
+    <footer class="bg-light py-4 mt-5 text-center">
+      <div class="container">
+        <p class="mb-3 mb-md-2">
+          © 2025 Yunus Emre Kurnalı - Tüm hakları saklıdır.
+        </p>
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+          <span class="text-muted mx-2">|</span>
+          <a
+            href="iletisim.html"
+            class="text-decoration-none mx-2 text-dark fw-semibold"
+            >İletişim</a
+          >
+          <span class="text-muted mx-2">|</span>
+          <a
+            href="login.html"
+            class="text-decoration-none mx-2 text-dark fw-semibold"
+            >Giriş Yap</a
+          >
+          <span class="text-muted mx-2">|</span>
         </div>
       </div>
     </footer>
-    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       new Vue({
         el: "#app",
@@ -241,112 +300,63 @@
           validateWithVue() {
             this.errors = {};
             const results = {};
-
-            if (!this.ad.trim()) {
-              this.errors.ad = true;
-              results["Ad"] = "Geçersiz - Boş bırakılamaz";
-            } else {
-              results["Ad"] = "Geçerli";
-            }
-
-            if (!this.soyad.trim()) {
-              this.errors.soyad = true;
-              results["Soyad"] = "Geçersiz - Boş bırakılamaz";
-            } else {
-              results["Soyad"] = "Geçerli";
-            }
-
+            if (!this.ad.trim()) this.errors.ad = true;
+            if (!this.soyad.trim()) this.errors.soyad = true;
             const emailRegex = /^[^@]+@[^@]+\.[a-z]{2,}$/;
-            if (!emailRegex.test(this.email)) {
-              this.errors.email = true;
-              results["E-posta"] = "Geçersiz - Format hatalı";
-            } else {
-              results["E-posta"] = "Geçerli";
+            if (!this.email.trim()) {
+              this.errors.email = "Lütfen e-postanızı giriniz.";
+            } else if (!emailRegex.test(this.email)) {
+              this.errors.email =
+                "Geçerli bir e-posta adresi giriniz:______@____.com şeklinde ";
             }
 
             const phoneRegex = /^\d{10}$/;
-            if (!phoneRegex.test(this.telefon)) {
-              this.errors.telefon = true;
-              results["Telefon"] = "Geçersiz - 10 haneli rakam girin";
-            } else {
-              results["Telefon"] = "Geçerli";
+
+            if (!this.telefon.trim()) {
+              this.errors.telefon = "Lütfen telefonunuzu giriniz.";
+            } else if (!phoneRegex.test(this.telefon)) {
+              this.errors.telefon =
+                "Telefon numarası 10 haneli olmalı ve sadece rakam içermelidir.";
             }
 
-            results["Cinsiyet"] = this.cinsiyet
-              ? "Seçildi"
-              : "Seçilmedi (isteğe bağlı)";
+            if (this.nedenler.length === 0) this.errors.nedenler = true;
+            if (!this.mesaj.trim()) this.errors.mesaj = true;
+            this.formHazir = Object.keys(this.errors).length === 0;
 
-            results["Şehir"] = this.sehir
-              ? "Seçildi"
-              : "Seçilmedi (isteğe bağlı)";
-
-            results["Doğum Tarihi"] = this.dogumTarihi
-              ? "Girildi"
-              : "Girilmedi (isteğe bağlı)";
-
-            if (this.nedenler.length === 0) {
-              this.errors.nedenler = true;
-              results["Nedenler"] = "Geçersiz - En az bir neden seçilmelidir";
-            } else {
-              results["Nedenler"] = "Geçerli";
-            }
-
-            if (!this.mesaj.trim()) {
-              this.errors.mesaj = true;
-              results["Mesaj"] = "Geçersiz - Boş bırakılamaz";
-            } else {
-              results["Mesaj"] = "Geçerli";
-            }
-
-            this.validationResults = results;
-            this.showValidationResults = true;
-
-            const hasErrors = Object.values(this.errors).some(
-              (error) => error === true
-            );
-            if (!hasErrors) {
-              this.formHazir = true; // Doğrulama başarılı
-              alert("Tüm alanlar geçerli! Form gönderilebilir.");
-            } else {
-              this.formHazir = false; // Hata varsa
-              alert("Bazı alanlar hatalı, lütfen kontrol ediniz.");
-            }
           },
-
           validateWithJS() {
-            if (
-              !this.ad ||
-              !this.soyad ||
-              !this.email ||
-              !this.telefon ||
-              !this.mesaj
-            ) {
-              alert("Lütfen tüm alanları doldurunuz.");
-              this.formHazir = false;
-              return;
+            this.errors = {}; // Hataları sıfırla
+
+            // Boş alanlar için kontrol
+            if (!this.ad.trim()) this.errors.ad = true;
+            if (!this.soyad.trim()) this.errors.soyad = true;
+
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
+            if (!this.email.trim()) {
+              this.errors.email = "Lütfen e-postanızı giriniz.";
+            } else if (!emailPattern.test(this.email)) {
+              this.errors.email = "Geçerli bir e-posta adresi giriniz.";
             }
 
-            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-            if (!emailPattern.test(this.email)) {
-              alert("Geçerli bir e-posta giriniz.");
-              this.formHazir = false;
-              return;
+            const phonePattern = /^\d{10}$/;
+            if (!this.telefon.trim()) {
+              this.errors.telefon = "Lütfen telefon numarası giriniz.";
+            } else if (!phonePattern.test(this.telefon)) {
+              this.errors.telefon =
+                "Telefon numarası 10 haneli olmalı ve sadece rakamlardan oluşmalıdır.";
             }
 
-            if (!/^\d{10}$/.test(this.telefon)) {
-              alert("Telefon numarası 10 haneli olmalıdır (örn: 5XXXXXXXXX).");
-              this.formHazir = false;
-              return;
-            }
+            if (this.nedenler.length === 0) this.errors.nedenler = true;
+            if (!this.mesaj.trim()) this.errors.mesaj = true;
 
-            if (this.nedenler.length === 0) {
-              alert("Lütfen en az bir şikayet nedeni seçiniz.");
-              this.formHazir = false;
-              return;
-            }
+            // Form hazır mı?
+            this.formHazir = Object.keys(this.errors).length === 0;
 
-            this.formHazir = true; // Doğrulama başarılıysa
-            alert("JS ile doğrulama başarılı!");
+            if (this.formHazir) {
+              alert("JS ile doğrulama başarılı!");
+            } else {
+              alert("Lütfen gerekli alanları eksiksiz doldurun.");
+            }
           },
         },
       });

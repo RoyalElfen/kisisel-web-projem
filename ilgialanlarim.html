@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
+    <!-- NAVBAR  Boostrap ile uyumlu-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="index.html">Yunus Emre Kurnalı</a>
@@ -56,15 +57,14 @@
     <div class="container py-4">
       <!-- Oyunlar Bölümü -->
       <h2 class="section-title">En Sevdiğim Oyunlar</h2>
-      <div class="row g-4 justify-content-center" id="gameContainer">
-        <!-- Oyun kartları JS ile gelecek -->
-      </div>
+      <div id="gameContainer" class="container"></div>
 
       <!-- Animeler Bölümü -->
       <h2 class="section-title">En Sevdiğim Animeler</h2>
-      <div class="row g-4 justify-content-center" id="animeContainer">
-        <!-- Anime kartları JS ile gelecek -->
-      </div>
+      <div
+        id="animeContainer"
+        class="d-flex flex-wrap justify-content-center gap-4"
+      ></div>
     </div>
 
     <footer class="bg-light py-4 mt-5 text-center">
@@ -94,7 +94,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-      // Oyun listesi
+      // Oyun ve anime listeleri 
       const games = [
         "The Elder Scrolls V: Skyrim",
         "Hollow Knight",
@@ -104,7 +104,6 @@
         "Red Dead Redemption 2",
       ];
 
-      // Anime listesi (Jikan API'den çekilecek)
       const animes = [
         { title: "One Piece", mal_id: 21 },
         { title: "Bleach", mal_id: 269 },
@@ -112,87 +111,131 @@
         { title: "Hunter x Hunter", mal_id: 11061 },
         { title: "Erased", mal_id: 31043 },
         { title: "One Punch Man", mal_id: 30276 },
+        { title: "Death Note", mal_id: 1535 },
+        { title: "Steins;Gate", mal_id: 9253 },
       ];
 
       const rawgApiKey = "3a82fe7fd57844feaa4ae1c5947d6074";
 
-      // Oyun verisini RAWG API ile çek
+      // RAWG API'den oyun verisi çekme
       async function fetchGameData(gameName) {
-        const response = await fetch(
-          `https://api.rawg.io/api/games?search=${encodeURIComponent(
-            gameName
-          )}&key=${rawgApiKey}`
-        );
-        const data = await response.json();
-        return data.results ? data.results[0] : null;
+        try {
+          const response = await fetch(
+            `https://api.rawg.io/api/games?search=${encodeURIComponent(
+              gameName
+            )}&key=${rawgApiKey}`
+          );
+          const data = await response.json();
+          return data.results ? data.results[0] : null;
+        } catch (error) {
+          console.error("Oyun verisi çekilirken hata:", error);
+          return null;
+        }
       }
 
-      // Anime verisini Jikan API ile çek
+      // Jikan API'den anime verisi çekme
       async function fetchAnimeData(mal_id) {
-        const response = await fetch(
-          `https://api.jikan.moe/v4/anime/${mal_id}`
-        );
-        const data = await response.json();
-        return data.data || null;
+        try {
+          const response = await fetch(
+            `https://api.jikan.moe/v4/anime/${mal_id}`
+          );
+          const data = await response.json();
+          return data.data || null;
+        } catch (error) {
+          console.error("Anime verisi çekilirken hata:", error);
+          return null;
+        }
       }
 
-      // Oyunları göster
+      // Diziyi parçalara ayırmak için yardımcı fonksiyon (3'lü gruplar)
+      function chunkArray(arr, size) {
+        const chunks = [];
+        for (let i = 0; i < arr.length; i += size) {
+          chunks.push(arr.slice(i, i + size));
+        }
+        return chunks;
+      }
+
+      // Oyun kartlarını oluşturup gösteren fonksiyon
       async function displayGames() {
         const container = document.getElementById("gameContainer");
+        container.innerHTML = "";
+
+        const gameDataArr = [];
         for (const name of games) {
           const game = await fetchGameData(name);
-          if (!game) continue;
-
-          const col = document.createElement("div");
-          col.className = "col-12 col-sm-6 col-md-4 col-lg-3 d-flex";
-
-          const card = document.createElement("div");
-          card.className = "card-custom flex-fill";
-
-          card.innerHTML = `
-        <img src="${game.background_image}" alt="${game.name}" />
-        <div class="card-body-custom">
-          <div class="card-title-custom">${game.name}</div>
-          <div class="card-subtitle-custom">Metacritic: ${
-            game.metacritic ?? "N/A"
-          }</div>
-        </div>
-      `;
-
-          col.appendChild(card);
-          container.appendChild(col);
+          if (game) gameDataArr.push(game);
         }
+
+        const rows = chunkArray(gameDataArr, 3);
+
+        rows.forEach((rowItems) => {
+          const row = document.createElement("div");
+          row.className = "row justify-content-center g-4 mb-4";
+
+          rowItems.forEach((game) => {
+            const col = document.createElement("div");
+            col.className = "col-12 col-md-4 d-flex";
+
+            const card = document.createElement("div");
+            card.className = "card-custom flex-fill";
+
+            card.innerHTML = `
+              <img src="${game.background_image}" alt="${game.name}" />
+              <div class="card-body-custom">
+                <div class="card-title-custom">${game.name}</div>
+                <div class="card-subtitle-custom">Metacritic: ${
+                  game.metacritic ?? "N/A"
+                }</div>
+              </div>
+            `;
+
+            col.appendChild(card);
+            row.appendChild(col);
+          });
+
+          container.appendChild(row);
+        });
       }
 
-      // Animeleri göster
+      // Anime kartlarını oluşturup gösteren fonksiyon
       async function displayAnimes() {
         const container = document.getElementById("animeContainer");
+        container.innerHTML = "";
+
+        const animeDataArr = [];
         for (const anime of animes) {
           const data = await fetchAnimeData(anime.mal_id);
-          if (!data) continue;
-
-          const col = document.createElement("div");
-          col.className = "col-12 col-sm-6 col-md-4 col-lg-3 d-flex";
-
-          const card = document.createElement("div");
-          card.className = "card-custom flex-fill";
-
-          card.innerHTML = `
-        <img src="${data.images.jpg.large_image_url}" alt="${data.title}" />
-        <div class="card-body-custom">
-          <div class="card-title-custom">${data.title}</div>
-          <div class="card-subtitle-custom">Score: ${data.score ?? "N/A"}</div>
-        </div>
-      `;
-
-          col.appendChild(card);
-          container.appendChild(col);
+          if (data) animeDataArr.push(data);
         }
+
+        animeDataArr.forEach((anime) => {
+          const col = document.createElement("div");
+          // flex-wrap ve max-width ile responsive
+          col.className = "d-flex flex-column card-custom";
+
+          col.style.maxWidth = "300px";
+
+          col.innerHTML = `
+            <img src="${anime.images.jpg.large_image_url}" alt="${
+            anime.title
+          }" />
+            <div class="card-body-custom">
+              <div class="card-title-custom">${anime.title}</div>
+              <div class="card-subtitle-custom">Score: ${
+                anime.score ?? "N/A"
+              }</div>
+            </div>
+          `;
+
+          container.appendChild(col);
+        });
       }
 
-      // Sayfa yüklendiğinde verileri getir
-      displayGames();
-      displayAnimes();
+      window.addEventListener("DOMContentLoaded", () => {
+        displayGames();
+        displayAnimes();
+      });
     </script>
   </body>
 </html>
